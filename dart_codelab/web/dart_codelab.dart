@@ -16,7 +16,7 @@ void main() {
   notesDeleteAll = querySelector("#notes_delete_all");
   notesDeleteAll.onClick.listen(deleteAll); 
   
-  loadFromLoacalStorage();
+  loadData();
 }
 
 void createNote(Event event) {
@@ -83,6 +83,18 @@ void saveToLocalStorage() {
   window.localStorage[NOTES_LIST] = Note.toJson(notes);
 }
 
+void loadData() {
+  HttpRequest.getString("notes.json")
+    .then((String jsonString) {
+      notes = Note.fromJson(jsonString);      
+      addNotes();
+      saveToLocalStorage();
+    })
+    .catchError((error) {
+      loadFromLoacalStorage();
+    });
+}
+
 
 class Note {
   String text;
@@ -91,7 +103,8 @@ class Note {
   
   static List fromJson(String jsonString) {
     List notes = new List();    
-    List notesJsonList = JSON.decode(jsonString);
+    Map notesJsonMap = JSON.decode(jsonString);
+    List notesJsonList = notesJsonMap["notes"];
     
     for (Map noteJsonMap in notesJsonList) {
       Note note = new Note(noteJsonMap["text"]);
@@ -101,6 +114,7 @@ class Note {
   }
   
   static String toJson(List notes) {
+    Map notesJsonMap = new Map();
     List notesJsonList = new List();
     
     for (Note note in notes) {
@@ -109,6 +123,7 @@ class Note {
       notesJsonList.add(noteJsonMap);
     }
     
-    return JSON.encode(notesJsonList);
+    notesJsonMap["notes"] = notesJsonList;
+    return JSON.encode(notesJsonMap);
   }
 }
