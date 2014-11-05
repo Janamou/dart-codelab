@@ -41,11 +41,12 @@ void addNoteElement(String noteText) {
 }
 
 void addDeleteNoteButton(LIElement note) {
-  AnchorElement anchor = new AnchorElement(href: "#");
-  anchor
+  ButtonElement deleteButton = new ButtonElement();
+  deleteButton
     ..text = "Delete"
+    ..classes.add("btn btn-danger btn-sm")
     ..onClick.listen(deleteNote);
-  note.append(anchor);
+  note.append(deleteButton);
 }
 
 void deleteNote(Event event) {
