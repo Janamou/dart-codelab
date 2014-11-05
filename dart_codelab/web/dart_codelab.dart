@@ -43,7 +43,7 @@ void addNoteElement(String noteText) {
 void addDeleteNoteButton(LIElement note) {
   AnchorElement anchor = new AnchorElement(href: "#");
   anchor
-    ..text = "Click"
+    ..text = "Delete"
     ..onClick.listen(deleteNote);
   note.append(anchor);
 }
@@ -84,7 +84,7 @@ void saveToLocalStorage() {
 }
 
 void loadData() {
-  HttpRequest.getString("notes.json")
+  HttpRequest.getString("noetes.json")
     .then((String jsonString) {
       notes = Note.fromJson(jsonString);      
       addNotes();

@@ -1,4 +1,4 @@
 name: dart_codelab
-description: A sample web application
+description: Notes app
 dependencies:
   browser: any

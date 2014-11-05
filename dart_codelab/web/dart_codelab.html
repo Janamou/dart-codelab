@@ -4,21 +4,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Note app</title>
+    <title>Notes app</title>
     
     <script async type="application/dart" src="dart_codelab.dart"></script>
     <script async src="packages/browser/dart.js"></script>
     
-    <link rel="stylesheet" href="dart_codelab.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1>Note app</h1>
     
-    <div id="note_app_container">
-      <a href="#" id="notes_delete_all">Delete all</a>
-      <input type="text" id="note_add_form" />
-      <ul id="notes_wrapper"></ul>
+    <div id="note_app_container" class="panel panel-primary">
+      <div class="panel-heading">
+        <h1>Notes app</h1>
+        <a href="#" id="notes_delete_all" class="btn btn-danger">Delete all</a>
+      </div>
+      <div class="panel-body">        
+        <input type="text" id="note_add_form" class="form-control" placeholder="Enter note"/>
+        <ul id="notes_wrapper"></ul>
+      </div>      
     </div>
-
   </body>
 </html>
