@@ -3,12 +3,12 @@ import 'dart:convert';
 
 InputElement noteInput;
 UListElement notesWrapper;
-AnchorElement notesDeleteAll;
+ButtonElement notesDeleteAll;
 List notes;
 final String NOTES_LIST = "notesList";
 
 void main() {
-  noteInput = querySelector("#note_add_form");
+  noteInput = querySelector("#note_add_input");
   noteInput.onChange.listen(createNote);  
   
   notesWrapper = querySelector("#notes_wrapper");
@@ -58,7 +58,6 @@ void deleteNote(Event event) {
 }
 
 void deleteAll(Event event) {
-  event.preventDefault();
   notes.clear();  
   notesWrapper.children.clear();
   saveToLocalStorage();
