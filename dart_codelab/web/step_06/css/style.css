@@ -1,0 +1,11 @@
+body {margin: 3em; background: #FCFCFC;}
+#note_app_container {margin: 0 auto; width: 500px;}
+.panel-heading {overflow: auto;}
+.panel-heading h1 {float: left; font-size: 20px; margin: 0; line-height: 34px;}
+.panel-heading .btn {float: right;}
+
+#notes_wrapper {margin: 0; padding: 0; list-style-type: none;}
+#notes_wrapper li {padding: 10px 0; border-bottom: 1px dotted silver}
+#notes_wrapper li:first-child {margin-top: 1em;}
+#notes_wrapper li button {float: right; display: none; margin-top: -5px;}
+#notes_wrapper li:hover button {display: block;}
