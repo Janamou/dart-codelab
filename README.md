@@ -9,4 +9,6 @@ You will learn:
 * how to save data to local storage
 * how to compile the application into the JavaScript
 
+![Notes application](https://github.com/Janamou/dart-codelab/blob/master/notes_app.png)
+
 [Full codelab text is in the wiki](https://github.com/Janamou/dart-codelab/wiki/Home/).
